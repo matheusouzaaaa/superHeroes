@@ -7,17 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
 class SuperHeroisTableViewController: UITableViewController {
+    
+    var herois: [NSManagedObject] = []
+    var context: NSManagedObjectContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        context = appDelegate.persistentContainer.viewContext
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        listarHerois()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +33,27 @@ class SuperHeroisTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.herois.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celulaHeroi", for: indexPath)
 
         // Configure the cell...
-
+        let heroi = self.herois[indexPath.row]
+        let stringNome = heroi.value(forKey: "nome") as? String
+        let stringGrupo = heroi.value(forKey: "grupo") as? String
+        cell.textLabel?.text =  stringNome! + " - " + stringGrupo!
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -91,5 +99,31 @@ class SuperHeroisTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func listarHerois(){
+        let requestHerois = NSFetchRequest<NSFetchRequestResult>(entityName: "Herois")
+    
+        let persistencia = PersistenciaConfig()
+        let opcoes = persistencia.listar()
+        
+        let config1 = opcoes.first?.hashValue ?? 1
+        var ordenacao = NSSortDescriptor()
+        
+        if config1 == 1 {
+           ordenacao = NSSortDescriptor(key: "nome", ascending: true)
+        }else{
+           ordenacao = NSSortDescriptor(key: "grupo", ascending: true)
+        }
+        
+        requestHerois.sortDescriptors = [ordenacao]
+        
+        do{
+            let heroisRecuperados = try context.fetch(requestHerois)
+            self.herois = heroisRecuperados as! [NSManagedObject]
+            self.tableView.reloadData()
+        }catch let erro as NSError{
+            print("Erro ao listar \(erro)")
+        }
+    }
 
 }

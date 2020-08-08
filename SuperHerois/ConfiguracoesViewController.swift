@@ -10,10 +10,25 @@ import UIKit
 
 class ConfiguracoesViewController: UIViewController {
 
+    @IBOutlet weak var listarGrupo: UISwitch!
+    @IBOutlet weak var listarNome: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let persistencia = PersistenciaConfig()
+        let opcoes = persistencia.listar()
+        
+        let config1 = opcoes.first?.hashValue ?? 1
+        
+        if config1 == 1 {
+            listarNome.setOn(true, animated: true)
+            listarGrupo.setOn(false, animated: true)
+        }else{
+            listarNome.setOn(false, animated: true)
+            listarGrupo.setOn(true, animated: true)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +36,28 @@ class ConfiguracoesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func btnNomeClick(_ sender: UISwitch) {
+        if sender.isOn{
+            listarGrupo.setOn(false, animated: true)
+        }
     }
-    */
-
+    @IBAction func btnGrupoClick(_ sender: UISwitch) {
+        if sender.isOn{
+            listarNome.setOn(false, animated: true)
+        }
+    }
+    
+    @IBAction func limpar(_ sender: Any) {
+        listarNome.setOn(false, animated: true)
+        listarGrupo.setOn(false, animated: true)
+    }
+    @IBAction func salvar(_ sender: Any) {
+        let listaNome: Bool = listarNome.isOn
+        let listaGrupo: Bool = listarGrupo.isOn
+        
+        let persistencia = PersistenciaConfig()
+        persistencia.adicionar(nome: listaNome, grupo: listaGrupo)
+    }
+    
 }

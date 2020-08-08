@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		5753E46524DB989100FF6F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753E46424DB989100FF6F24 /* AppDelegate.swift */; };
-		5753E46724DB989100FF6F24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753E46624DB989100FF6F24 /* ViewController.swift */; };
+		5753E46724DB989100FF6F24 /* FormularioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753E46624DB989100FF6F24 /* FormularioViewController.swift */; };
 		5753E46A24DB989100FF6F24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5753E46824DB989100FF6F24 /* Main.storyboard */; };
 		5753E46D24DB989100FF6F24 /* SuperHerois.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5753E46B24DB989100FF6F24 /* SuperHerois.xcdatamodeld */; };
 		5753E46F24DB989300FF6F24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5753E46E24DB989300FF6F24 /* Assets.xcassets */; };
 		5753E47224DB989300FF6F24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5753E47024DB989300FF6F24 /* LaunchScreen.storyboard */; };
+		5753E47A24DB9EEE00FF6F24 /* ConfiguracoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753E47924DB9EEE00FF6F24 /* ConfiguracoesViewController.swift */; };
+		5753E47C24DB9F3800FF6F24 /* PersistenciaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753E47B24DB9F3800FF6F24 /* PersistenciaConfig.swift */; };
+		5753E47E24DBA76900FF6F24 /* SuperHeroisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753E47D24DBA76900FF6F24 /* SuperHeroisTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5753E46124DB989100FF6F24 /* SuperHerois.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperHerois.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5753E46424DB989100FF6F24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5753E46624DB989100FF6F24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5753E46624DB989100FF6F24 /* FormularioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormularioViewController.swift; sourceTree = "<group>"; };
 		5753E46924DB989100FF6F24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5753E46C24DB989100FF6F24 /* SuperHerois.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SuperHerois.xcdatamodel; sourceTree = "<group>"; };
 		5753E46E24DB989300FF6F24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5753E47124DB989300FF6F24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5753E47324DB989300FF6F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5753E47924DB9EEE00FF6F24 /* ConfiguracoesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguracoesViewController.swift; sourceTree = "<group>"; };
+		5753E47B24DB9F3800FF6F24 /* PersistenciaConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenciaConfig.swift; sourceTree = "<group>"; };
+		5753E47D24DBA76900FF6F24 /* SuperHeroisTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperHeroisTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +63,15 @@
 			isa = PBXGroup;
 			children = (
 				5753E46424DB989100FF6F24 /* AppDelegate.swift */,
-				5753E46624DB989100FF6F24 /* ViewController.swift */,
+				5753E46624DB989100FF6F24 /* FormularioViewController.swift */,
 				5753E46824DB989100FF6F24 /* Main.storyboard */,
 				5753E46E24DB989300FF6F24 /* Assets.xcassets */,
 				5753E47024DB989300FF6F24 /* LaunchScreen.storyboard */,
 				5753E47324DB989300FF6F24 /* Info.plist */,
 				5753E46B24DB989100FF6F24 /* SuperHerois.xcdatamodeld */,
+				5753E47924DB9EEE00FF6F24 /* ConfiguracoesViewController.swift */,
+				5753E47B24DB9F3800FF6F24 /* PersistenciaConfig.swift */,
+				5753E47D24DBA76900FF6F24 /* SuperHeroisTableViewController.swift */,
 			);
 			path = SuperHerois;
 			sourceTree = "<group>";
@@ -138,8 +147,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5753E46724DB989100FF6F24 /* ViewController.swift in Sources */,
+				5753E46724DB989100FF6F24 /* FormularioViewController.swift in Sources */,
+				5753E47E24DBA76900FF6F24 /* SuperHeroisTableViewController.swift in Sources */,
+				5753E47A24DB9EEE00FF6F24 /* ConfiguracoesViewController.swift in Sources */,
 				5753E46D24DB989100FF6F24 /* SuperHerois.xcdatamodeld in Sources */,
+				5753E47C24DB9F3800FF6F24 /* PersistenciaConfig.swift in Sources */,
 				5753E46524DB989100FF6F24 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
